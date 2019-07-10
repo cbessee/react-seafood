@@ -1,18 +1,17 @@
 language: node_js
 node_js:
-  - node
+- node
 install:
-  - npm install
+- npm install
 before_script: 
-  - export REACT_APP_IS_PRODUCTION='UA-80485263-1'
-  if: branch = development
+- ./scripts/set_env.sh
 script:
-  - npm run build
+- npm run build
 before_deploy:
-  - 'curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"'
-  - 'unzip awscli-bundle.zip'
-  - './awscli-bundle/install -b ~/bin/aws'
-  - 'export PATH=~/bin:$PATH'
+- 'curl "https://s3.amazonaws.com/aws-cli/awscli-bundle.zip" -o "awscli-bundle.zip"'
+- 'unzip awscli-bundle.zip'
+- './awscli-bundle/install -b ~/bin/aws'
+- 'export PATH=~/bin:$PATH'
 deploy:
     - provider: s3
       access_key_id: $AWS_ACCESS_KEY_ID
