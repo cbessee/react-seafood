@@ -8,7 +8,7 @@ const config = {
   // Google Analytics
   ga: {
     // Global GA identifier
-    id: 'UA-XXXXXXXX-1',
+    id: process.env.REACT_APP_GA_ID,
     // Event Category constants
     event: {
       // Vendor click events
