@@ -3,7 +3,7 @@
  * Global application configuration
  *
  ********************/
-
+console.log(process.env);
 const config = {
   // Google Analytics
   ga: {
